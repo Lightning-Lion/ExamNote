@@ -62,7 +62,10 @@ public class SearchActivity extends AppCompatActivity {
         long startDate = 0;
         long endDate = Long.MAX_VALUE;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+if (query.isEmpty() ) {
+    Toast.makeText(this,"请输入搜索关键词",Toast.LENGTH_SHORT).show();
 
+        }
         if (!TextUtils.isEmpty(startDateStr)) {
             try {
                 Date date = sdf.parse(startDateStr);
@@ -70,7 +73,7 @@ public class SearchActivity extends AppCompatActivity {
                     startDate = date.getTime();
                 }
             } catch (ParseException e) {
-                Toast.makeText(this, "Invalid start date format. Use yyyy-MM-dd", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "日期格式需要是yyyy-MM-dd", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
@@ -82,7 +85,7 @@ public class SearchActivity extends AppCompatActivity {
                     endDate = date.getTime();
                 }
             } catch (ParseException e) {
-                Toast.makeText(this, "Invalid end date format. Use yyyy-MM-dd", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "日期格式需要是yyyy-MM-dd", Toast.LENGTH_SHORT).show();
                 return;
             }
         }

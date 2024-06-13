@@ -66,7 +66,6 @@ public class NoteEditActivity extends AppCompatActivity {
     private NotesViewModel notesViewModel;
     private EditText titleEditText;
     private EditText contentEditText;
-    private TextView locationTextView;
     private Button addLocationButton;
     private Button viewLocationButton;
 
@@ -149,13 +148,13 @@ public class NoteEditActivity extends AppCompatActivity {
                                 json.put("longitude", location.getLongitude());
                                 String jsonString = json.toString();
                                 note.setLocation(jsonString);
-
-                                locationTextView.setText("笔记定位已保存");
                                 viewLocationButton.setVisibility(View.VISIBLE);
                                 Toast.makeText(this, "笔记位置已保存", Toast.LENGTH_SHORT).show();
                                 saveAndUpdate(); // 位置保存后立即触发保存
                             } catch (Exception e) {
                                 e.printStackTrace();
+//                                String[] a = {};
+//                                String b = a[1];
                                 Toast.makeText(this, "无法笔记保存位置，保存过程出错", Toast.LENGTH_SHORT).show();
                             }
                         } else {
