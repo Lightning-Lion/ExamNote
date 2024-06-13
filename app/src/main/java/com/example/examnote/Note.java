@@ -16,8 +16,10 @@ public class Note {
     private String title;
     private String content;
     private int folderId;
-    private String location; // New location attribute
-    private String imageUri; // New image URI attribute
+    private String location;
+    private String imageUri;
+    private long createdDate;  // 添加字段
+    private long updatedDate;  // 添加字段
 
     // Constructors, getters, and setters
     public Note(String title, String content, int folderId, String location, String imageUri) {
@@ -26,8 +28,11 @@ public class Note {
         this.folderId = folderId;
         this.location = location;
         this.imageUri = imageUri;
+        this.createdDate = System.currentTimeMillis();
+        this.updatedDate = System.currentTimeMillis();
     }
 
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -42,6 +47,7 @@ public class Note {
 
     public void setTitle(String title) {
         this.title = title;
+        this.updatedDate = System.currentTimeMillis();
     }
 
     public String getContent() {
@@ -50,6 +56,7 @@ public class Note {
 
     public void setContent(String content) {
         this.content = content;
+        this.updatedDate = System.currentTimeMillis();
     }
 
     public int getFolderId() {
@@ -66,6 +73,7 @@ public class Note {
 
     public void setLocation(String location) {
         this.location = location;
+        this.updatedDate = System.currentTimeMillis();
     }
 
     public String getImageUri() {
@@ -74,5 +82,22 @@ public class Note {
 
     public void setImageUri(String imageUri) {
         this.imageUri = imageUri;
+        this.updatedDate = System.currentTimeMillis();
+    }
+
+    public long getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(long createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public long getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(long updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }

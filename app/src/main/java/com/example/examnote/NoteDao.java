@@ -25,4 +25,14 @@ public interface NoteDao {
 
     @Delete
     void deleteNote(Note note);
+
+    // 搜索方法
+    @Query("SELECT * FROM notes WHERE title LIKE :query OR content LIKE :query ORDER BY createdDate ASC")
+    LiveData<List<Note>> searchNotesAscending(String query);
+
+    @Query("SELECT * FROM notes WHERE title LIKE :query OR content LIKE :query ORDER BY createdDate DESC")
+    LiveData<List<Note>> searchNotesDescending(String query);
+
+    @Query("SELECT * FROM notes WHERE createdDate BETWEEN :startDate AND :endDate")
+    LiveData<List<Note>> getNotesByDateRange(long startDate, long endDate);
 }

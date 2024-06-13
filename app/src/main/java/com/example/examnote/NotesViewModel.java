@@ -36,7 +36,7 @@ public class NotesViewModel extends AndroidViewModel {
     }
 
     public void insertNote(String title, String content, int folderId, String imageUri) {
-        Note note = new Note(title, content, folderId, null,imageUri);
+        Note note = new Note(title, content, folderId, null, imageUri);
         repository.insertNote(note);
     }
 
@@ -49,10 +49,24 @@ public class NotesViewModel extends AndroidViewModel {
     }
 
     public void updateNote(Note note) {
+        note.setUpdatedDate(System.currentTimeMillis());
         repository.updateNote(note);
     }
 
     public void deleteNote(Note note) {
         repository.deleteNote(note);
+    }
+
+    // 搜索和日期范围方法
+    public LiveData<List<Note>> searchNotesAscending(String query) {
+        return repository.searchNotesAscending(query);
+    }
+
+    public LiveData<List<Note>> searchNotesDescending(String query) {
+        return repository.searchNotesDescending(query);
+    }
+
+    public LiveData<List<Note>> getNotesByDateRange(long startDate, long endDate) {
+        return repository.getNotesByDateRange(startDate, endDate);
     }
 }

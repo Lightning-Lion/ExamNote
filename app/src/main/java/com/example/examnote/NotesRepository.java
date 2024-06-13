@@ -53,4 +53,17 @@ public class NotesRepository {
     public void deleteNote(Note note) {
         executorService.execute(() -> noteDao.deleteNote(note));
     }
+
+    // 搜索和日期范围方法
+    public LiveData<List<Note>> searchNotesAscending(String query) {
+        return noteDao.searchNotesAscending(query);
+    }
+
+    public LiveData<List<Note>> searchNotesDescending(String query) {
+        return noteDao.searchNotesDescending(query);
+    }
+
+    public LiveData<List<Note>> getNotesByDateRange(long startDate, long endDate) {
+        return noteDao.getNotesByDateRange(startDate, endDate);
+    }
 }

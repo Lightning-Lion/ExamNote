@@ -32,6 +32,8 @@ android {
 }
 
 dependencies {
+
+    implementation("androidx.appcompat:appcompat:1.3.1");
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation("androidx.preference:preference:1.1.1");
     implementation("com.github.bumptech.glide:glide:4.12.0")

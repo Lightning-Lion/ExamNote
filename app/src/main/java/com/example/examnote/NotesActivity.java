@@ -27,7 +27,7 @@ public class NotesActivity extends AppCompatActivity {
 
         Button addNoteButton = findViewById(R.id.addNoteButton);
         addNoteButton.setOnClickListener(v -> {
-            notesViewModel.insertNote("New Note", "Note content", folderId,"");
+            notesViewModel.insertNote("", "", folderId,"");
         });
 
         RecyclerView notesRecyclerView = findViewById(R.id.notesRecyclerView);

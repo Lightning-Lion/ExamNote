@@ -123,12 +123,11 @@ public class NoteEditActivity extends AppCompatActivity {
         note.setTitle(titleEditText.getText().toString());
         note.setContent(contentEditText.getText().toString());
         note.setImageUri(this.imageUri);
+        note.setUpdatedDate(System.currentTimeMillis());
         notesViewModel.updateNote(note);
-
         notesViewModel.getNoteById(noteId).observe(this, note -> {
             if (note != null) {
                 this.note = note;
-                //不setText相关的，避免多余刷新
                 viewLocationButton.setVisibility(note.getLocation() != null ? View.VISIBLE : View.GONE);
                 displayImage(note);
             }
