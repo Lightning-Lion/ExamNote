@@ -9,19 +9,19 @@
         android:id="@+id/searchEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search by title or content" />
+        android:hint="搜索笔记标题或正文" />
 
     <EditText
         android:id="@+id/startDateEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Start Date (yyyy-MM-dd)" />
+        android:hint="开始日期 (yyyy-MM-dd)（选填）" />
 
     <EditText
         android:id="@+id/endDateEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="End Date (yyyy-MM-dd)" />
+        android:hint="结束日期 (yyyy-MM-dd)（选填）" />
 
     <RadioGroup
         android:id="@+id/sortRadioGroup"
@@ -33,21 +33,21 @@
             android:id="@+id/ascendingRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ascending"
-            android:checked="true" />
+            android:checked="true"
+            android:text="升序" />
 
         <RadioButton
             android:id="@+id/descendingRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descending" />
+            android:text="降序" />
     </RadioGroup>
 
     <Button
         android:id="@+id/searchButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Search" />
+        android:text="搜索" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notesRecyclerView"

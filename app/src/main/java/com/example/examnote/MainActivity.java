@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button addFolderButton = findViewById(R.id.addFolderButton);
         addFolderButton.setOnClickListener(v -> {
-            notesViewModel.insertFolder("New Folder");
+            notesViewModel.insertFolder("新笔记夹");
         });
 
         RecyclerView foldersRecyclerView = findViewById(R.id.foldersRecyclerView);

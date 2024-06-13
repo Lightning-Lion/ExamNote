@@ -9,7 +9,7 @@
         android:id="@+id/addFolderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Folder" />
+        android:text="创建笔记夹" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/foldersRecyclerView"

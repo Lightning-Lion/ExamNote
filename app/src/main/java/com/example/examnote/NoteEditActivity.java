@@ -23,6 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.load.resource.bitmap.FitCenter;
@@ -242,7 +243,7 @@ public class NoteEditActivity extends AppCompatActivity {
             }
             inputStream.close();
             outputStream.close();
-            return Uri.fromFile(file);
+            return FileProvider.getUriForFile(NoteEditActivity.this, "com.example.examnote.fileprovider", file);
         } catch (IOException e) {
             e.printStackTrace();
             return null;

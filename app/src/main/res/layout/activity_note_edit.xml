@@ -10,14 +10,14 @@
         android:id="@+id/titleEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Title" />
+        android:hint="标题" />
 
     <EditText
         android:id="@+id/contentEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Content"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:hint="正文" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -34,14 +34,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Add Location" />
+        android:text="保存定位" />
 
     <Button
         android:id="@+id/viewLocationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="View Location"
+        android:text="在地图上查看"
         android:visibility="gone" />
 
     <Button
@@ -49,6 +49,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Save" />
+        android:text="保存" />
 
 </LinearLayout>

@@ -50,13 +50,13 @@ public class FoldersAdapter extends RecyclerView.Adapter<FoldersAdapter.FolderVi
 
     private void showRenameDialog(Folder folder) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Rename Folder");
+        builder.setTitle("重命名笔记夹");
 
         final EditText input = new EditText(context);
         input.setText(folder.getName());
         builder.setView(input);
 
-        builder.setPositiveButton("OK", (dialog, which) -> {
+        builder.setPositiveButton("保存", (dialog, which) -> {
             String newName = input.getText().toString();
             if (!newName.isEmpty()) {
                 folder.setName(newName);
@@ -64,20 +64,20 @@ public class FoldersAdapter extends RecyclerView.Adapter<FoldersAdapter.FolderVi
                 notifyDataSetChanged();
             }
         });
-        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+        builder.setNegativeButton("取消", (dialog, which) -> dialog.cancel());
 
         builder.show();
     }
 
     private void showDeleteConfirmationDialog(Folder folder) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Delete Folder");
-        builder.setMessage("Are you sure you want to delete this folder?");
-        builder.setPositiveButton("Yes", (dialog, which) -> {
+        builder.setTitle("删除笔记夹");
+        builder.setMessage("确认删除吗？");
+        builder.setPositiveButton("删除", (dialog, which) -> {
             notesViewModel.deleteFolder(folder);
             notifyDataSetChanged();
         });
-        builder.setNegativeButton("No", (dialog, which) -> dialog.cancel());
+        builder.setNegativeButton("不删除", (dialog, which) -> dialog.cancel());
 
         builder.show();
     }

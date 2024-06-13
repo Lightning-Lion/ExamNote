@@ -35,7 +35,11 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
     @Override
     public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
         Note note = notes.get(position);
-        holder.noteTitleTextView.setText(note.getTitle());
+        if (note.getTitle().isEmpty()) {
+            holder.noteTitleTextView.setText("新笔记");
+        } else {
+            holder.noteTitleTextView.setText(note.getTitle());
+        }
 
         holder.itemViewButton.setOnClickListener(v -> {
             Intent intent = new Intent(context, NoteEditActivity.class);
@@ -49,13 +53,13 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
 
     private void showRenameDialog(Note note) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Rename Note");
+        builder.setTitle("重命名笔记");
 
         final EditText input = new EditText(context);
         input.setText(note.getTitle());
         builder.setView(input);
 
-        builder.setPositiveButton("OK", (dialog, which) -> {
+        builder.setPositiveButton("保存", (dialog, which) -> {
             String newTitle = input.getText().toString();
             if (!newTitle.isEmpty()) {
                 note.setTitle(newTitle);
@@ -63,20 +67,20 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
                 notifyDataSetChanged();
             }
         });
-        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+        builder.setNegativeButton("取消", (dialog, which) -> dialog.cancel());
 
         builder.show();
     }
 
     private void showDeleteConfirmationDialog(Note note) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Delete Note");
-        builder.setMessage("Are you sure you want to delete this note?");
-        builder.setPositiveButton("Yes", (dialog, which) -> {
+        builder.setTitle("删除笔记");
+        builder.setMessage("确认删除吗？");
+        builder.setPositiveButton("删除", (dialog, which) -> {
             notesViewModel.deleteNote(note);
             notifyDataSetChanged();
         });
-        builder.setNegativeButton("No", (dialog, which) -> dialog.cancel());
+        builder.setNegativeButton("不删除", (dialog, which) -> dialog.cancel());
 
         builder.show();
     }
